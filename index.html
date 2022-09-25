@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .show {
+            background-color: white !important;
+            color: rgb(32, 23, 23) !important;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 35px;
+            font-weight: 800;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(23, 193, 145);
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .start-btn {
+            padding: 10px 30px;
+            margin: 17px;
+            font-size: 17px;
+            font-family: sans-serif;
+            font-weight: 500;
+            background-color: rgb(88, 81, 81);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .stop-btn {
+            padding: 10px 30px;
+            margin: 17px;
+            font-size: 17px;
+            font-family: sans-serif;
+            font-weight: 500;
+            background-color: rgb(88, 81, 81);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .start-btn:hover {
+            background-image: linear-gradient(to right, red, orange, yellow, green, rgb(46, 46, 181), indigo, violet, red);
+            animation: slidebg 5s linear infinite;
+        }
+
+        .stop-btn:hover {
+            background-image: linear-gradient(to right, red, orange, yellow, green, rgb(42, 42, 128), indigo, violet, red);
+            animation: slidebg 5s linear infinite;
+        }
+
+        @keyframes slidebg {
+            to {
+                background-position: 20vw;
+            }
+        }
+
+        .color-change {
+            margin-top: -400px;
+            margin-left: 1050px;
+        }
+
+        @media screen and (max-width:768px) {
+            .color-change {
+
+               
+                    margin-top: -481px;
+                    margin-left: -19px;
+                }
+
+                .light{
+                    margin: 0;
+                }
+                .dark{
+                    margin: 6px;
+                }
+            
+
+        }
+
+        .light {
+            padding: 10px 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            background-color: white;
+            color: gray;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dark {
+            padding: 10px 20px;
+            margin: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: gray;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .para {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Timer and Stopwatch</h1>
+    <div class="container">
+
+        <p class="para">Click start to start the Stopwatch</p>
+        <p class="para">Click stop to Stop the Stopwatch</p>
+        <h2 id="output"><span id="milisecond"></span>:<span id="second"></span>:<span id="minute"></span>:<span
+                id="hours"></span></h2>
+
+        <button class="start-btn" onclick="myVar = setInterval(myFunction , 10)">Start</button>
+        <button class="stop-btn" onclick="clearInterval(myVar)">Stop</button>
+    </div>
+
+
+    <div class="color-change">
+        <button class="light" onclick="ourFunction()" type="button">Light</button>
+        <button class="dark" onclick="yourFunction()" type="button">Dark</button>
+    </div>
+
+
+    <script>
+        var milisecond = 0;
+        var second = 0;
+        var minute = 0;
+        var hours = 0;
+
+        function myFunction() {
+            document.querySelector("#milisecond").innerText = milisecond;
+            document.querySelector("#second").innerText = second;
+            document.querySelector("#minute").innerText = minute;
+            document.querySelector("#hours").innerText = hours;
+            milisecond++
+
+            if (milisecond == 100) {
+                milisecond = 0;
+                second++
+
+            }
+
+            if (second == 60) {
+                second = 0;
+                minute++
+
+            }
+            if (minute == 60) {
+
+                minute = 0;
+                hours++
+            }
+        }
+
+        function ourFunction() {
+            document.body.classList.add("show");
+            localStorage.setItem()
+        }
+
+        function yourFunction() {
+            document.body.classList.remove("show");
+            localStorage.setItem()
+
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
